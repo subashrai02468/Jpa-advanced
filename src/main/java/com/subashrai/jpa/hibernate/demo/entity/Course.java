@@ -1,11 +1,14 @@
 package com.subashrai.jpa.hibernate.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@NamedQueries({
+		@NamedQuery(name = "query_get_all_courses", query = "SELECT c FROM Course c"),
+		@NamedQuery(name = "query_get_100_Step_courses", query = "SELECT c FROM Course c WHERE c.name LIKE '%100 Steps%'")
+})
 public class Course {
+	// existing fields and methods
 
 	@Id
 	@GeneratedValue
